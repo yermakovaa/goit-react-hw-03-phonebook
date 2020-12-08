@@ -52,7 +52,11 @@ class App extends Component {
       alert('Enter the correct number phone!');
     } else {
       this.setState(({ contacts }) => ({
-        contacts: [contact, ...contacts],
+        contacts: [contact, ...contacts].sort((a, b) => {
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+          if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+          return 0;
+        }),
       }));
     }
   };

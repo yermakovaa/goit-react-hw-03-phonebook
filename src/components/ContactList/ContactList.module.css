@@ -8,6 +8,7 @@
 .item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .item:not(:last-child) {
@@ -15,6 +16,7 @@
 }
 
 .btn {
+  padding: 0;
   cursor: pointer;
   background-color: transparent;
   border: none;
