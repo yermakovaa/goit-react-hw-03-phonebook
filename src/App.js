@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import shortid from 'shortid';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Container from './components/Container/Container';
 import ContactForm from './components/ContactForm/ContactForm';
 import Filter from './components/Filter/Filter';
@@ -43,13 +45,13 @@ class App extends Component {
         contact => contact.name.toLowerCase() === name.toLowerCase(),
       )
     ) {
-      alert(`${name} is already in contacts.`);
+      toast.warning(`🤔 ${name} is already in contacts.`);
     } else if (contacts.find(contact => contact.number === number)) {
-      alert(`${number} is already in contacts.`);
+      toast.warning(`🤔 ${number} is already in contacts.`);
     } else if (name.trim() === '' || number.trim() === '') {
-      alert("Enter the contact's name and number phone!");
+      toast.info("😱 Enter the contact's name and number phone!");
     } else if (!/\d{3}[-]\d{2}[-]\d{2}/g.test(number)) {
-      alert('Enter the correct number phone!');
+      toast.error('💩 Enter the correct number phone!');
     } else {
       this.setState(({ contacts }) => ({
         contacts: [contact, ...contacts].sort((a, b) => {
@@ -99,6 +101,7 @@ class App extends Component {
         ) : (
           <p>Your phonebook is empty. Please add contact.</p>
         )}
+        <ToastContainer autoClose={3700} />
       </Container>
     );
   }

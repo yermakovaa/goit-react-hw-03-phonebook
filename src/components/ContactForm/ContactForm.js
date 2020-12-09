@@ -41,7 +41,7 @@ class ContactForm extends Component {
           Number
           <input
             className={s.input}
-            type="text"
+            type="tel"
             name="number"
             value={number}
             onChange={this.handleChange}
