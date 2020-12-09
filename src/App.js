@@ -45,9 +45,9 @@ class App extends Component {
         contact => contact.name.toLowerCase() === name.toLowerCase(),
       )
     ) {
-      toast.warning(`🤔 ${name} is already in contacts.`);
+      toast(`🤔 ${name} is already in contacts.`);
     } else if (contacts.find(contact => contact.number === number)) {
-      toast.warning(`🤔 ${number} is already in contacts.`);
+      toast(`🤔 ${number} is already in contacts.`);
     } else if (name.trim() === '' || number.trim() === '') {
       toast.info("😱 Enter the contact's name and number phone!");
     } else if (!/\d{3}[-]\d{2}[-]\d{2}/g.test(number)) {
